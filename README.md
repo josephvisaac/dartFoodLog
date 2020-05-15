@@ -1,6 +1,6 @@
 # foodLog
 
-A new Flutter project.
+A new Flutter Project. It's...a food logger.
 
 ## Getting Started
 
