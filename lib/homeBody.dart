@@ -61,7 +61,8 @@ class _HomeBodyState extends State<HomeBody> {
                       errorText: widget.isNameValid ? null : widget.ferrorMsg,
                       // contentPadding: EdgeInsets.only(bottom: 15, top:0 ),
                       errorStyle: TextStyle(fontSize: 20),
-                      labelText: 'Food',contentPadding: EdgeInsets.only(left: 10),
+                      labelText: 'Food',
+                      contentPadding: EdgeInsets.only(left: 10),
                       alignLabelWithHint: true),
                   keyboardType: TextInputType.text,
                   controller: food,
@@ -71,24 +72,22 @@ class _HomeBodyState extends State<HomeBody> {
                 ),
               ),
               Container(
-                
                 margin: EdgeInsets.only(top: 7, bottom: 5),
                 child: Material(
                   shadowColor: Colors.green,
                   elevation: 4,
                   child: TextField(
-                    
                     controller: calories,
                     onSubmitted: (calSubmissionText) =>
                         widget.calSubmission(calSubmissionText, food),
                     style: TextStyle(fontSize: 25),
-                    
                     onChanged: (calories) =>
                         widget.caloriesValidation(calories),
                     decoration: InputDecoration(
                         errorText: widget.isCalValid ? null : widget.errorMsg,
                         errorStyle: TextStyle(fontSize: 20),
-                        labelText: 'Calories',contentPadding: EdgeInsets.only(left: 10),
+                        labelText: 'Calories',
+                        contentPadding: EdgeInsets.only(left: 10),
                         alignLabelWithHint: true),
                     keyboardType: TextInputType.number,
                   ),
@@ -152,7 +151,8 @@ class _HomeBodyState extends State<HomeBody> {
                     },
                     itemCount: widget.theLIST.length,
                   )),
-                  Text('total calories: ${widget.total}', style: TextStyle(fontSize: 25)),
+              Text('total calories: ${widget.total}',
+                  style: TextStyle(fontSize: 25)),
             ], //Column Children
           ),
         ),
