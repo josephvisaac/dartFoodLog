@@ -35,16 +35,23 @@ class _HomeBodyState extends State<HomeBody> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        fontFamily: 'custom',
+      ),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(60),
           child: AppBar(
+            backgroundColor: Theme.of(context).primaryColor,
             title: Align(
               alignment: Alignment.center,
               child: Text(
                 'Food List',
-                style: TextStyle(fontSize: 45, fontWeight: FontWeight.w300),
+                style: TextStyle(
+                    fontSize: 45,
+                    // fontFamily: 'custom',
+                    /*fontWeight: FontWeight.w300*/),
               ),
             ),
           ),
@@ -53,13 +60,14 @@ class _HomeBodyState extends State<HomeBody> {
           child: Column(
             children: <Widget>[
               Material(
-                shadowColor: Colors.green,
+                // shadowColor: Colors.green,
                 elevation: 3,
                 child: TextField(
                   style: TextStyle(fontSize: 25),
                   decoration: InputDecoration(
                       errorText: widget.isNameValid ? null : widget.ferrorMsg,
                       // contentPadding: EdgeInsets.only(bottom: 15, top:0 ),
+
                       errorStyle: TextStyle(fontSize: 20),
                       labelText: 'Food',
                       contentPadding: EdgeInsets.only(left: 10),
@@ -74,7 +82,8 @@ class _HomeBodyState extends State<HomeBody> {
               Container(
                 margin: EdgeInsets.only(top: 7, bottom: 5),
                 child: Material(
-                  shadowColor: Colors.green,
+                  // shadowColor: Colors.green,
+                  // shadowColor: Theme.of(context).primaryColorLight,
                   elevation: 4,
                   child: TextField(
                     controller: calories,
@@ -97,7 +106,9 @@ class _HomeBodyState extends State<HomeBody> {
                 margin: EdgeInsets.only(top: 25),
                 padding: EdgeInsets.symmetric(horizontal: 10),
                 decoration: BoxDecoration(
-                    border: Border(bottom: BorderSide(color: Colors.black45))),
+                    border: Border(
+                        bottom: BorderSide(
+                            color: Theme.of(context).primaryColorDark))),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
@@ -113,6 +124,7 @@ class _HomeBodyState extends State<HomeBody> {
                       child: Text(
                         'Calories',
                         textAlign: TextAlign.right,
+                        
                         style: TextStyle(fontSize: 25),
                       ),
                     )
@@ -122,6 +134,7 @@ class _HomeBodyState extends State<HomeBody> {
               Container(
                   padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
                   height: 300,
+                  // color: Theme.of(context).primaryColorLight,
                   child: ListView.builder(
                     itemBuilder: (context, index) {
                       return Row(
@@ -151,8 +164,15 @@ class _HomeBodyState extends State<HomeBody> {
                     },
                     itemCount: widget.theLIST.length,
                   )),
-              Text('total calories: ${widget.total}',
-                  style: TextStyle(fontSize: 25)),
+              Container(
+                height: 35,
+                width: double.maxFinite,
+                color: Theme.of(context).primaryColor,
+                child: Center(
+                  child: Text('total calories: ${widget.total}',
+                      style: TextStyle(fontSize: 25, color: Colors.white)),
+                ),
+              ),
             ], //Column Children
           ),
         ),

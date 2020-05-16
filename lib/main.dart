@@ -80,17 +80,24 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return HomeBody(
-      isNameValid: isNameValid,
-      foodSubmission: foodSubmission,
-      calSubmission: calSubmission,
-      isCalValid: isCalValid,
-      theLIST: theLIST,
-      foodValidation: foodValidation,
-      caloriesValidation: caloriesValidation,
-      errorMsg: errorMsg,
-      ferrorMsg: ferrorMsg,
-      total: total,
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          primarySwatch: Colors.blue,
+          fontFamily: 'custom', //name must match name chosen in yaml file
+          ),
+      home: HomeBody(
+        isNameValid: isNameValid,
+        foodSubmission: foodSubmission,
+        calSubmission: calSubmission,
+        isCalValid: isCalValid,
+        theLIST: theLIST,
+        foodValidation: foodValidation,
+        caloriesValidation: caloriesValidation,
+        errorMsg: errorMsg,
+        ferrorMsg: ferrorMsg,
+        total: total,
+      ),
     );
   }
 }
